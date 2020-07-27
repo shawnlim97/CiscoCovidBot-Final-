@@ -81,7 +81,43 @@ Example satellite image comparison response:
 ![Screenshot](Miscellaneous/sat_response.png)
 
 ### Pandemic Insights Mode
-The date comparison mode is activated using the _/insights_ keyword command with the card as shown
+The date comparison mode is activated using the _/insights_ keyword command with the card as shown (submit button out of frame)
+
+![Screenshot](Miscellaneous/insightscard.png)
+
+Once submitted, the bot will compile the users' interested paramters and perform a correlation study on each one of them. It will produce a correlation heatmap and pariplot graph for the users' perusal.
+
+Example correlation heatmap response:
+
+![Screenshot](Miscellaneous/correlation_response.png)
+
+
+Example pairplot graph response:
+
+![Screenshot](Miscellaneous/pariplot_response.png)
+
 ### Forecast Mode
 The date comparison mode is activated using the _/forecast_ keyword command with the card as shown
+
+![Screenshot](Miscellaneous/forecastcard.png)
+
+Once submitted, the bot will sieve out the future date entered by the user and extract the corresponding value from the respective csv datasets. It will also show the full forecasted time series projected by the model.
+
+![Screenshot](Miscellaneous/forecast_response.png)
+
+The model used for the NDVI parameter was FB prophet. A Fourier order of 10 was used to model seasonal changes together with two additional regressors. Location-based holidays was also added to the model to account for irregular schedules in the dataset. A monthly basis forecast is used to better highlight seasonal differences
+
+The model used for the Pollution parameter was SARIMA. Auto-arima was used to determine parameters that yield the least model error. A plot diagnostic was also done to ensure residual errors were within an acceptable bias and autocorrelation.
+
+Model determined using auto-arima:
+
+![Screenshot](Miscellaneous/auto_arima.png)
+
+
+Plot diagnostics of model used:
+
+![Screenshot](Miscellaneous/plot_diagnostics.png)
+
+For more information, please refer to [this link](https://github.com/renelikestacos/Google-Earth-Engine-Python-Examples/blob/master/007_EE_Time-Series_Prediction_and_Forecast.ipynb)
+
 ## Limitations and Future Improvements
