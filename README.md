@@ -1,5 +1,6 @@
 ## CiscoCovidBot-Final-
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 This project involves creating a Webex Teams Chatbot that educates and informs the public on COVID-19 related insights. The difference between this project and most others is the fact that this uses satellite level imagery to produce macro-view insights to our users.
 
 ## Table of Content
