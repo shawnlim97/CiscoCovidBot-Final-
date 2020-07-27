@@ -84,7 +84,7 @@ We will cover the following 3 features here:
 * Pandemic Insights Mode
 * Forecast Mode
 
-The other two features will be covered in another document
+The other two features will be covered [here](https://github.com/chensxb97/object_detection_chatbot.git)
 ### Date Comparison Mode
 The date comparison mode is activated using the _/compare_ keyword command with the card as shown
 
