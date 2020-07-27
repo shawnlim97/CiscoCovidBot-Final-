@@ -58,14 +58,30 @@ The point of having a membership webhook is allow the bot to send a help message
 Example of help message shown when new member joins a bot space:
 ![Screenshot](Miscellaneous/helpmessage.png)
 ## Features!
-We have three features currently in place:
+We will cover the following 3 features here:
 * Date Comparison Mode
 * Pandemic Insights Mode
 * Forecast Mode
+
+The other two features will be covered in another document
 ### Date Comparison Mode
+The date comparison mode is activated using the _/compare_ keyword command with the card as shown
+
+![Screenshot](Miscellaneous/comparecard.png)
+
+Once submitted, the bot will sieve out the relevant date inputs and extract the corresponding parameter values from the respective csv datasets. It will also sieve out images from the Sat_Images and NDVI_Images folders and get the relevant date-labelled images. The final result will be a parameter value comparison as well as a satellite image comparison.
+
+Example parameter value comparison response:
+
+![Screenshot](Miscellaneous/compare_response.png)
+
+
+Example satellite image comparison response:
+
+![Screenshot](Miscellaneous/sat_response.png)
 
 ### Pandemic Insights Mode
-
+The date comparison mode is activated using the _/insights_ keyword command with the card as shown
 ### Forecast Mode
-
+The date comparison mode is activated using the _/forecast_ keyword command with the card as shown
 ## Limitations and Future Improvements
