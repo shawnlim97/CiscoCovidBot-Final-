@@ -32,7 +32,7 @@ Install the dependencies and devDependencies and start the server. I'll be using
 - python3 
 - [ngrok](https://ngrok.com/download)
 
-### Step 1: Creating a virutal environment
+### Step 1: Creating a virtual environment
 Initialize the virtual environment by running the following commands in your local terminal
 
 ```sh
