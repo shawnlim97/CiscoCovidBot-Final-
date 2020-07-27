@@ -2,6 +2,26 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 This project involves creating a Webex Teams Chatbot that educates and informs the public on COVID-19 related insights. The difference between this project and most others is the fact that this uses satellite level imagery to produce macro-view insights to our users.
 
+## Table of Content
+- [Motivation](#motivation)
+- [Installation](#installation)
+  * [Step 1: Creating a virutal environment](#step-1--creating-a-virutal-environment)
+  * [Step 2: Install webexteamssdk](#step-2--install-webexteamssdk)
+  * [Step 3: Create your bot on Cisco Webex](#step-3--create-your-bot-on-cisco-webex)
+  * [Step 4: Setup ngrok and env variables](#step-4--setup-ngrok-and-env-variables)
+  * [Step 5: Run the bot](#step-5--run-the-bot)
+- [Webhooks](#webhooks)
+- [Features!](#features-)
+  * [Date Comparison Mode](#date-comparison-mode)
+  * [Pandemic Insights Mode](#pandemic-insights-mode)
+  * [Forecast Mode](#forecast-mode)
+- [Limitations and Future Improvements](#limitations-and-future-improvements)
+  * [Real-time data](#real-time-data)
+  * [Real-time images](#real-time-images)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## Motivation
 Given the impact this recent pandemic has had on our world, we decided to create a chatbot to help both the common public and decision makers alike through the features we have implemented.
 
@@ -105,9 +125,9 @@ Once submitted, the bot will sieve out the future date entered by the user and e
 
 ![Screenshot](Miscellaneous/forecast_response.png)
 
-The model used for the NDVI parameter was FB prophet. A Fourier order of 10 was used to model seasonal changes together with two additional regressors. Location-based holidays was also added to the model to account for irregular schedules in the dataset. A monthly basis forecast is used to better highlight seasonal differences
+The model used for the NDVI parameter was FB prophet. A Fourier order of 10 was used to model seasonal changes together with two additional regressors. Location-based holidays was also added to the model to account for irregular schedules in the dataset. A monthly basis forecast is used to better highlight seasonal differences.
 
-The model used for the Pollution parameter was SARIMA. Auto-arima was used to determine parameters that yield the least model error. A plot diagnostic was also done to ensure residual errors were within an acceptable bias and autocorrelation.
+The model used for the Pollution parameter was SARIMA. Auto-arima was used to determine parameters that yield the least error model. A plot diagnostic was also done to ensure residual errors were within an acceptable bias and autocorrelation. A weekly basis forecast is used as the pollution dataset is only available over a 2 year period. 
 
 Model determined using auto-arima:
 
@@ -122,7 +142,7 @@ For more information, please refer to [this link](https://github.com/renelikesta
 
 ## Limitations and Future Improvements
 Due to the shortage of time, the current bot is not programmed to carry real time information. This is however possible using the Google Earth Engine Python API.
-# Real-time data
+### Real-time data
 After [initialising and authenticating GEE on Python](https://developers.google.com/earth-engine/python_install), select your location of interest as well as the satellite you are interested in.
 ```sh
 # Set start and end date
@@ -148,7 +168,7 @@ df = pd.DataFrame(data=ndvi, index=time, columns=['ndvi'])
 probav_time_series = df.dropna()
 ```
 This will give you a nice two column dataframe with index as datetime and ndvi as your real-time data. The chatbot can then be programmed to extract users' dates as per normal. 
-# Real-time images
+### Real-time images
 This is a little trickier. Since Webex Teams doesn't support Map files, our next best alternative is to use static images. While not an issue for the default code editor, using GEE Python API to do this requires you to manually set a Web Mercator projection on the static map you desire. Otherwise, a native image will be shown (a globe and not a flat map). In addition, geodesic has to be set to False for normal geometry to work.
 ```sh
 dem = ee.Image('MODIS/006/MOD13A2/2018_01_17').select('NDVI')
