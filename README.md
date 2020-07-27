@@ -1,13 +1,11 @@
-# CiscoCovidBot-Final-
-
-# CiscoCovidBot-Final-
+## CiscoCovidBot-Final-
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 This project involves creating a Webex Teams Chatbot that educates and informs the public on COVID-19 related insights. The difference between this project and most others is the fact that this uses satellite level imagery to produce macro-view insights to our users.
 
-# Motivation
+## Motivation
 Given the impact this recent pandemic has had on our world, we decided to create a chatbot to help both the common public and decision makers alike through the features we have implemented.
 
-# Installation
+## Installation
 Install the dependencies and devDependencies and start the server. I'll be using a linux OS but a windows one will work fine with some tweaks as well. The following are items this documentation assumes you already have installed: 
 - virtualenv 
 - python3 
@@ -49,7 +47,7 @@ We can now run the bot. For this project the bot code is provided under [finalpr
 ```sh
 python ./finalproduct.py
 ```
-# Webhooks
+## Webhooks
 Webhooks allow users to interact with bots using the ngrok url you previosuly set up. They are many Webhooks available. We will be using three under the "created" event type.
 - memberships (created): Allow bot to detect new members (including itself) entering a team space
 - messages (created): Allow bot to respond to messages from users/itself
@@ -57,7 +55,7 @@ Webhooks allow users to interact with bots using the ngrok url you previosuly se
 
 The point of having a membership webhook is allow the bot to send a help message whenever it is added to a new group or if a new member joins an existing space with the bot in it. This help message will contain keyword commands that will be detected by the bot via the messages webhook whenever users send them. The bot will then respond by replying with interactive cards asking users for their interested parameters (see below). Once users fill these cards and submit them, the bot will use the attachmentActions webhook to sieve out the relevant information desired and send it back to the users. 
 ![Screenshot](C:\Users\LIM WENXUAN SHAWN\Pictures\Screenshots\helpmessage.png)
-# Features!
+## Features!
 We have three features currently in place:
 * Date Comparison Mode
 * Pandemic Insights Mode
@@ -68,4 +66,4 @@ We have three features currently in place:
 
 ### Forecast Mode
 
-# Limitations and Future Improvements
+## Limitations and Future Improvements
