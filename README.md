@@ -54,7 +54,7 @@ Webhooks allow users to interact with bots using the ngrok url you previosuly se
 - attachmentActions (created): Allow bot to respond to button press by user on interactive cards 
 
 The point of having a membership webhook is allow the bot to send a help message whenever it is added to a new group or if a new member joins an existing space with the bot in it. This help message will contain keyword commands that will be detected by the bot via the messages webhook whenever users send them. The bot will then respond by replying with interactive cards asking users for their interested parameters (see below). Once users fill these cards and submit them, the bot will use the attachmentActions webhook to sieve out the relevant information desired and send it back to the users. 
-![Screenshot](C:\Users\LIM WENXUAN SHAWN\Pictures\Screenshots\helpmessage.png)
+![Screenshot](Miscellaneous/helpmessage.png)
 ## Features!
 We have three features currently in place:
 * Date Comparison Mode
