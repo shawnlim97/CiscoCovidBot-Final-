@@ -170,7 +170,7 @@ probav_time_series = df.dropna()
 ```
 This will give you a nice two column dataframe with index as datetime and ndvi as your real-time data. The chatbot can then be programmed to extract users' dates as per normal. 
 ### Real-time images
-This is a little trickier. Since Webex Teams doesn't support Map files, our next best alternative is to use static images. While not an issue for the default code editor, using GEE Python API to do this requires you to manually set a Web Mercator projection on the static map you desire. Otherwise, a native image will be shown (a globe and not a flat map). In addition, geodesic has to be set to False for normal geometry to work.
+This is a little trickier. Since Webex Teams doesn't support Map files, our next best alternative is to use static images. While not an issue for the default code editor, using GEE Python API to do this requires you to manually set a Web Mercator projection on the static map you desire. Otherwise, a native image will be shown (a globe and not a flat map). In addition, geodesic has to be set to False for your geometry to work normally.
 ```sh
 dem = ee.Image('MODIS/006/MOD13A2/2018_01_17').select('NDVI')
 AOI = ee.Geometry.Rectangle([125,30, 150, 50], geodesic=False, proj=None)
@@ -179,6 +179,6 @@ Image(url = dem.updateMask(dem.gt(0)).setDefaultProjection('EPSG:3857', [1, 0, 0
       .getThumbURL({'min': 0, 'max': 3000, 'dimensions': 512, 'palette': ['red', 'yellow', 'green'], 'region': AOI,
                 }))
 ```
-Running this code will yield you the following image dated on 17 January, 2018. For this to be in real-time, simply change the date id to the present day image (note: NDVI is recorded once every 16 days so not everyday would have an NDVI image). 
+Running this code will yield you the following image dated 17 January, 2018. For this to be in real-time, simply change the date id to the present day image (note: NDVI is recorded once every 16 days so not everyday would have an NDVI image). 
 
 ![Screenshot](Miscellaneous/staticimage.png)
