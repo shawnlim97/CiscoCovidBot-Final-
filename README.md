@@ -62,9 +62,9 @@ export PORT=5000
 Finally, take your bot's access token and place it in your environment variable as WEBEX_TEAMS_ACCESS_TOKEN.
 
 ### Step 5: Run the bot
-Please read and download the necessary packages if needed from [requirement.txt](https://github.com/shawnlim97/CiscoCovidBot-Final-/blob/master/requirement.txt) file before proceeding and the [Downloads](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Downloads) folder. 
+Please read and download the necessary packages if needed from [requirement.txt](https://github.com/shawnlim97/CiscoCovidBot-Final-/blob/master/requirement.txt) file and the [Downloads](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Downloads) folder before proceeding. 
 
-We can now run the bot. For this project the bot code is provided under [finalproduct.py](https://github.com/shawnlim97/CiscoCovidBot-Final-/blob/master/Python%20Files/finalproduct.py). Please also be mindful to change the directory in the code to your own local paths.
+We can now run the bot. For this project, the bot code is provided under [finalproduct.py](https://github.com/shawnlim97/CiscoCovidBot-Final-/blob/master/Python%20Files/finalproduct.py). Please also be mindful to change the directory in the code to your own local paths.
 ```sh
 python ./finalproduct.py
 ```
