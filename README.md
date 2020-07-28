@@ -40,7 +40,7 @@ virtualenv venv
 source venv/bin/activate
 ```
 ### Step 2: Install webexteamssdk
-You now have your virtual environment set up. We next need the webexteamssdk module to run the chatbot in python.
+You now have your virtual environment set up. We next need the webexteamssdk module to run the chatbot in python. Webexteamssdk is a module created by [CiscoDevNet](https://github.com/CiscoDevNet/webexteamssdk) which allows us to interact with our chatbot easily. 
 
 ```sh
 pip install webexteamsssdk
@@ -90,7 +90,7 @@ The date comparison mode is activated using the _/compare_ keyword command with 
 
 ![Screenshot](Miscellaneous/comparecard.png)
 
-Once submitted, the bot will sieve out the relevant date inputs and extract the corresponding parameter values from the respective [csv datasets](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Downloads). It will also sieve out images from the [Sat_Images](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Sat_Images) and [NDVI_Images](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/NDVI_Images) folders and get the relevant date-labelled images. The final result will be a parameter value comparison as well as a satellite image comparison.
+Once submitted, the bot will sieve out the relevant date inputs and extract the corresponding parameter values from the respective [csv datasets](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Downloads). It will also sieve out images from the [Sat_Images](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/Sat_Images) and [NDVI_Images](https://github.com/shawnlim97/CiscoCovidBot-Final-/tree/master/NDVI_Images) folders and get the relevant date-labelled images. The images found in these folders are the result of pre-run code on the Google Earth Engine's code editor. The final result will be a parameter value comparison as well as a satellite image comparison.
 
 Example parameter value comparison response:
 
