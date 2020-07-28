@@ -778,7 +778,7 @@ def respond_to_membership(webhook):
 
 def pollutionJP_datecompare(start_date, end_date):    
     try:
-        with open(r'/home/shawn/Downloads/ee-chart (3).csv') as csvDataFile:
+        with open(r'Downloads/ee-chart (3).csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
         pan_mean=float(data[1][3])
         pan_mean_2dp=round(pan_mean,2)
@@ -911,7 +911,7 @@ def append_images(images, direction='horizontal',
 
 def date_select(date):    
     try:
-        with open(r'/home/shawn/Downloads/ee-chart (3).csv') as csvDataFile:
+        with open(r'Downloads/ee-chart (3).csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
 
         #dicts used for date formatting    
@@ -952,7 +952,7 @@ def date_select(date):
         return "null"
 
 def image_output(start_date, end_date):
-    image_dir=r'/home/shawn/Sat_Images'
+    image_dir=r'Sat_Images'
     
     start_img=image_dir+'/'+str(date_select(start_date))+'.png'
     end_img=image_dir+'/'+str(date_select(end_date))+'.png'
@@ -982,7 +982,7 @@ def image_output(start_date, end_date):
         cropped = im.crop((725, 250, 1200, 800))
         
         #separator image
-        im1_5=Image.open(r"/home/shawn/Sat_Images/split.png")
+        im1_5=Image.open(r"Sat_Images/split.png")
         cropped1_5 = im.crop((518, 400, 528, 950))
         
         #end image
@@ -997,11 +997,11 @@ def image_output(start_date, end_date):
         cropped2 = im2.crop((725, 250, 1200, 800))
         
         #sidebar image
-        im3= Image.open(r"/home/shawn/Sat_Images/sidebar.png")
+        im3= Image.open(r"Sat_Images/sidebar.png")
         cropped3= im3.crop((0, 0, 160, 550))
         
         x=append_images([cropped,cropped1_5,cropped2,cropped3], direction='horizontal')
-        x.save("/home/shawn/shared/pol_comparison.png")
+        x.save("shared/pol_comparison.png")
 
 def NDVI_value(date_input):    
     try:
@@ -1010,7 +1010,7 @@ def NDVI_value(date_input):
         year_no=int(d[0:4])-2018
         date_object = int(dt.timetuple().tm_yday)
         n= ((date_object-1)//16)
-        with open(r'/home/shawn/Downloads/NDVI.csv') as csvDataFile:
+        with open(r'Downloads/NDVI.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
         if dt<=datetime.date.today() and dt>=datetime.datetime.strptime('01/01/2018','%m/%d/%Y').date():
             if dt<=datetime.datetime.strptime(data[58][0],'%Y/%m/%d').date():
@@ -1025,7 +1025,7 @@ def NDVI_compare(start, end):
     try:
         start_veg=float(NDVI_value(start))
         end_veg=float(NDVI_value(end))
-        with open(r'/home/shawn/Downloads/NDVI.csv') as csvDataFile:
+        with open(r'Downloads/NDVI.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
         prior_veg=round(float(data[1][2]),3)
         during_veg=round(float(data[1][3]),3)
@@ -1062,7 +1062,7 @@ def date_select2(date_input):
         year_no=int(d[0:4])-2018
         date_object = int(dt.timetuple().tm_yday)
         n= ((date_object-1)//16)
-        with open(r'/home/shawn/Downloads/NDVI.csv') as csvDataFile:
+        with open(r'Downloads/NDVI.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
         if dt<=datetime.date.today() and dt>=datetime.datetime.strptime('01/01/2018','%m/%d/%Y').date():
             if dt<=datetime.datetime.strptime(data[58][0],'%Y/%m/%d').date():
@@ -1085,7 +1085,7 @@ def image_output2(start_date, end_date):
     end_day=date_select2(end_date)[8:10]
     end_date2=end_year+'-'+end_month+'-'+end_day
     
-    image_dir=r'/home/shawn/NDVI_Images'  
+    image_dir=r'NDVI_Images'  
     start_img=image_dir+'/'+str(start_date2)+'.png'
     print(start_img)
     end_img=image_dir+'/'+str(end_date2)+'.png'
@@ -1116,7 +1116,7 @@ def image_output2(start_date, end_date):
         cropped = im.crop((200,450, 650, 950))
         
         #separator image
-        im1_5=Image.open(r"/home/shawn/NDVI_Images/split2.png")
+        im1_5=Image.open(r"NDVI_Images/split2.png")
         cropped1_5 = im.crop((953, 450, 964, 950))
         
         #end image
@@ -1131,7 +1131,7 @@ def image_output2(start_date, end_date):
         cropped2 = im2.crop((200,450, 650, 950))
         
         #sidebar image
-        im3= Image.open(r"/home/shawn/NDVI_Images/sidebar_NDVI.png")
+        im3= Image.open(r"NDVI_Images/sidebar_NDVI.png")
         cropped3= im3.crop((0,0,155,500))
         
         x=append_images([cropped,cropped1_5,cropped2,cropped3], direction='horizontal')
@@ -1146,7 +1146,7 @@ def date_convert(date):
 
 def forecast_pol(date):    
     try:
-        with open(r'/home/shawn/Downloads/Pollution_forecast_values.csv') as csvDataFile:
+        with open(r'Downloads/Pollution_forecast_values.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
             for row in data:
                 if row[0]==date_convert(date):
@@ -1156,7 +1156,7 @@ def forecast_pol(date):
     
 def upper_pol(date):    
     try:
-        with open(r'/home/shawn/Downloads/Pollution_forecast_values.csv') as csvDataFile:
+        with open(r'Downloads/Pollution_forecast_values.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
             for row in data:
                 if row[0]==date_convert(date):
@@ -1166,7 +1166,7 @@ def upper_pol(date):
 
 def lower_pol(date): 
     try:
-        with open(r'/home/shawn/Downloads/Pollution_forecast_values.csv') as csvDataFile:
+        with open(r'Downloads/Pollution_forecast_values.csv') as csvDataFile:
             data=list(csv.reader(csvDataFile))
             for row in data:
                 if row[0]==date_convert(date):
@@ -1176,7 +1176,7 @@ def lower_pol(date):
 
 def forecast_ndvi(date):    
     try:
-        with open(r'/home/shawn/Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
+        with open(r'Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
             data=list(csv.reader(csvDataFile))
             month=date[5:7]
             year=date[0:4]
@@ -1189,7 +1189,7 @@ def forecast_ndvi(date):
     
 def lower_ndvi(date):    
     try:
-        with open(r'/home/shawn/Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
+        with open(r'Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
             data=list(csv.reader(csvDataFile))
             month=date[5:7]
             year=date[0:4]
@@ -1202,7 +1202,7 @@ def lower_ndvi(date):
     
 def upper_ndvi(date):    
     try:
-        with open(r'/home/shawn/Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
+        with open(r'Downloads/NDVI_forecast_values.csv', encoding="utf8") as csvDataFile:
             data=list(csv.reader(csvDataFile))
             month=date[5:7]
             year=date[0:4]
@@ -1228,7 +1228,7 @@ def respond_to_button_press(webhook):
         """
     )
     def corr_image():
-        JapanData=pd.read_csv('/home/shawn/Downloads/JPdataset_prefecture.csv', header= 0, encoding= 'unicode_escape')
+        JapanData=pd.read_csv('Downloads/JPdataset_prefecture.csv', header= 0, encoding= 'unicode_escape')
         lst=['Infections', 'Deaths', 'Population', 'GDP', 'Healthcare', 'Pollution', 'Forest ratio', 'Temperature', 'Humidity %']
         params_lst=[]
         for params in lst:
@@ -1242,9 +1242,9 @@ def respond_to_button_press(webhook):
             sb.set(font_scale=2)
             f, axes=plt.subplots(1, 1, figsize=(20, 20))
             ax=sb.heatmap(JapanRevData.corr(), vmin = -1, vmax = 1, linewidths = 1, annot = True, fmt = ".2f", annot_kws = {"size": 25}, cmap = "RdBu") 
-            ax.get_figure().savefig('/home/shawn/shared/output.png')
+            ax.get_figure().savefig('shared/output.png')
             ax2=sb.pairplot(data=JapanRevData)
-            ax2.savefig('/home/shawn/shared/output1.png')
+            ax2.savefig('shared/output1.png')
         
         
     print(attachment_action.json_data)
