@@ -1135,7 +1135,7 @@ def image_output2(start_date, end_date):
         cropped3= im3.crop((0,0,155,500))
         
         x=append_images([cropped,cropped1_5,cropped2,cropped3], direction='horizontal')
-        x.save("/home/shawn/shared/NDVI_comparison.png")
+        x.save("shared/NDVI_comparison.png")
 
 def date_convert(date):
     dt = datetime.datetime.strptime(date, '%Y-%m-%d')
