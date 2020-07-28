@@ -1255,12 +1255,8 @@ def respond_to_button_press(webhook):
             )
         start_date=attachment_action.json_data["inputs"]["start_date"]
         end_date=attachment_action.json_data["inputs"]["end_date"]
-        if start_date or end_date=='':
-            api.messages.create(
-                room.id,
-                markdown=f"Either one or both of your start date and end date were not selected. No results will hence be available."
-            ) 
-        elif attachment_action.json_data["inputs"]["CompareChoiceVal"]=="Pollution":
+        
+        if attachment_action.json_data["inputs"]["CompareChoiceVal"]=="Pollution":
             image_output(start_date, end_date)
             if type(image_output(start_date, end_date))!=str:
                 api.messages.create(
